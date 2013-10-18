@@ -22,6 +22,20 @@
 		A053E66217E3A74F00EE7AEB /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A053E66117E3A74F00EE7AEB /* MainViewController.m */; };
 		A053E66417E3A83A00EE7AEB /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A053E66317E3A83A00EE7AEB /* CoreLocation.framework */; };
 		A053E66817E3ABFE00EE7AEB /* GeoLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = A053E66717E3ABFE00EE7AEB /* GeoLocation.m */; };
+		A0C8FB101810C614005F07B9 /* BuyTickets.png in Resources */ = {isa = PBXBuildFile; fileRef = A0C8FB0F1810C614005F07B9 /* BuyTickets.png */; };
+		A0C8FB121810C6B7005F07B9 /* Buytickets100.png in Resources */ = {isa = PBXBuildFile; fileRef = A0C8FB111810C6B7005F07B9 /* Buytickets100.png */; };
+		A0C8FB151810DDE2005F07B9 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C8FB141810DDE2005F07B9 /* MapViewController.m */; };
+		A0C8FB171810E0F6005F07B9 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0C8FB161810E0F6005F07B9 /* MapKit.framework */; };
+		A0D157CB17E6164900E9D47A /* NoImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A0D157CA17E6164900E9D47A /* NoImage.jpg */; };
+		A0D157CE17E6174300E9D47A /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D157CD17E6174300E9D47A /* AboutViewController.m */; };
+		A0D36EC017F888A700D4AAD6 /* TicketsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D36EBF17F888A700D4AAD6 /* TicketsViewController.m */; };
+		A0D4EFFD17F60F2100813377 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D4EFFC17F60F2100813377 /* SearchViewController.m */; };
+		A0D4F00017F60F6B00813377 /* EventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D4EFFF17F60F6B00813377 /* EventViewController.m */; };
+		A0E0F06B17E4B442002E8528 /* PopularViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0E0F06A17E4B442002E8528 /* PopularViewCell.m */; };
+		A0E0F07117E4BBD3002E8528 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0E0F07017E4BBD3002E8528 /* SDWebImage.framework */; };
+		A0E0F07317E4BC1C002E8528 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0E0F07217E4BC1C002E8528 /* ImageIO.framework */; };
+		A0E0F07517E51EB7002E8528 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0E0F07417E51EB7002E8528 /* iAd.framework */; };
+		A0EE005C17F751E4008A9AE9 /* PlayBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = A0EE005B17F751E4008A9AE9 /* PlayBtn.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +60,26 @@
 		A053E66317E3A83A00EE7AEB /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		A053E66617E3ABFE00EE7AEB /* GeoLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeoLocation.h; sourceTree = "<group>"; };
 		A053E66717E3ABFE00EE7AEB /* GeoLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeoLocation.m; sourceTree = "<group>"; };
+		A0C8FB0F1810C614005F07B9 /* BuyTickets.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BuyTickets.png; sourceTree = "<group>"; };
+		A0C8FB111810C6B7005F07B9 /* Buytickets100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Buytickets100.png; sourceTree = "<group>"; };
+		A0C8FB131810DDE2005F07B9 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		A0C8FB141810DDE2005F07B9 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		A0C8FB161810E0F6005F07B9 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		A0D157CA17E6164900E9D47A /* NoImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NoImage.jpg; sourceTree = "<group>"; };
+		A0D157CC17E6174300E9D47A /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		A0D157CD17E6174300E9D47A /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		A0D36EBE17F888A700D4AAD6 /* TicketsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TicketsViewController.h; sourceTree = "<group>"; };
+		A0D36EBF17F888A700D4AAD6 /* TicketsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TicketsViewController.m; sourceTree = "<group>"; };
+		A0D4EFFB17F60F2100813377 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		A0D4EFFC17F60F2100813377 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		A0D4EFFE17F60F6B00813377 /* EventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventViewController.h; sourceTree = "<group>"; };
+		A0D4EFFF17F60F6B00813377 /* EventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventViewController.m; sourceTree = "<group>"; };
+		A0E0F06917E4B442002E8528 /* PopularViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopularViewCell.h; sourceTree = "<group>"; };
+		A0E0F06A17E4B442002E8528 /* PopularViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopularViewCell.m; sourceTree = "<group>"; };
+		A0E0F07017E4BBD3002E8528 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SDWebImage.framework; sourceTree = "<group>"; };
+		A0E0F07217E4BC1C002E8528 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		A0E0F07417E51EB7002E8528 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
+		A0EE005B17F751E4008A9AE9 /* PlayBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PlayBtn.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,10 +87,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0C8FB171810E0F6005F07B9 /* MapKit.framework in Frameworks */,
+				A0E0F07517E51EB7002E8528 /* iAd.framework in Frameworks */,
+				A0E0F07317E4BC1C002E8528 /* ImageIO.framework in Frameworks */,
 				A053E66417E3A83A00EE7AEB /* CoreLocation.framework in Frameworks */,
 				A053E63917E37F7300EE7AEB /* UIKit.framework in Frameworks */,
 				A053E63B17E37F7300EE7AEB /* Foundation.framework in Frameworks */,
 				A053E63D17E37F7300EE7AEB /* CoreGraphics.framework in Frameworks */,
+				A0E0F07117E4BBD3002E8528 /* SDWebImage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +104,7 @@
 		A053E62C17E37F7300EE7AEB = {
 			isa = PBXGroup;
 			children = (
+				A0E0F06817E4B41C002E8528 /* Cells */,
 				A053E66517E3ABE200EE7AEB /* Engine */,
 				A053E65B17E3828D00EE7AEB /* Assets */,
 				A053E63E17E37F7300EE7AEB /* First Row */,
@@ -85,6 +124,10 @@
 		A053E63717E37F7300EE7AEB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A0C8FB161810E0F6005F07B9 /* MapKit.framework */,
+				A0E0F07417E51EB7002E8528 /* iAd.framework */,
+				A0E0F07217E4BC1C002E8528 /* ImageIO.framework */,
+				A0E0F07017E4BBD3002E8528 /* SDWebImage.framework */,
 				A053E66317E3A83A00EE7AEB /* CoreLocation.framework */,
 				A053E63817E37F7300EE7AEB /* UIKit.framework */,
 				A053E63A17E37F7300EE7AEB /* Foundation.framework */,
@@ -101,6 +144,16 @@
 				A053E65017E37F7400EE7AEB /* MainStoryboard.storyboard */,
 				A053E66017E3A74F00EE7AEB /* MainViewController.h */,
 				A053E66117E3A74F00EE7AEB /* MainViewController.m */,
+				A0D157CC17E6174300E9D47A /* AboutViewController.h */,
+				A0D157CD17E6174300E9D47A /* AboutViewController.m */,
+				A0D4EFFB17F60F2100813377 /* SearchViewController.h */,
+				A0D4EFFC17F60F2100813377 /* SearchViewController.m */,
+				A0D4EFFE17F60F6B00813377 /* EventViewController.h */,
+				A0D4EFFF17F60F6B00813377 /* EventViewController.m */,
+				A0D36EBE17F888A700D4AAD6 /* TicketsViewController.h */,
+				A0D36EBF17F888A700D4AAD6 /* TicketsViewController.m */,
+				A0C8FB131810DDE2005F07B9 /* MapViewController.h */,
+				A0C8FB141810DDE2005F07B9 /* MapViewController.m */,
 				A053E63F17E37F7300EE7AEB /* Supporting Files */,
 			);
 			path = "First Row";
@@ -123,6 +176,10 @@
 		A053E65B17E3828D00EE7AEB /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				A0C8FB111810C6B7005F07B9 /* Buytickets100.png */,
+				A0C8FB0F1810C614005F07B9 /* BuyTickets.png */,
+				A0EE005B17F751E4008A9AE9 /* PlayBtn.png */,
+				A0D157CA17E6164900E9D47A /* NoImage.jpg */,
 				A053E65E17E3843500EE7AEB /* LogoFirstRow.png */,
 				A053E65C17E3834000EE7AEB /* MainBG.jpg */,
 			);
@@ -136,6 +193,15 @@
 				A053E66717E3ABFE00EE7AEB /* GeoLocation.m */,
 			);
 			name = Engine;
+			sourceTree = "<group>";
+		};
+		A0E0F06817E4B41C002E8528 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				A0E0F06917E4B442002E8528 /* PopularViewCell.h */,
+				A0E0F06A17E4B442002E8528 /* PopularViewCell.m */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -166,6 +232,11 @@
 			attributes = {
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = Neuralnet;
+				TargetAttributes = {
+					A053E63417E37F7300EE7AEB = {
+						DevelopmentTeam = DS8FAQ2FU5;
+					};
+				};
 			};
 			buildConfigurationList = A053E63017E37F7300EE7AEB /* Build configuration list for PBXProject "First Row" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -190,12 +261,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				A053E64317E37F7300EE7AEB /* InfoPlist.strings in Resources */,
+				A0EE005C17F751E4008A9AE9 /* PlayBtn.png in Resources */,
 				A053E64B17E37F7400EE7AEB /* Default.png in Resources */,
 				A053E64D17E37F7400EE7AEB /* Default@2x.png in Resources */,
 				A053E64F17E37F7400EE7AEB /* Default-568h@2x.png in Resources */,
 				A053E65217E37F7400EE7AEB /* MainStoryboard.storyboard in Resources */,
+				A0C8FB121810C6B7005F07B9 /* Buytickets100.png in Resources */,
+				A0C8FB101810C614005F07B9 /* BuyTickets.png in Resources */,
 				A053E65D17E3834000EE7AEB /* MainBG.jpg in Resources */,
 				A053E65F17E3843500EE7AEB /* LogoFirstRow.png in Resources */,
+				A0D157CB17E6164900E9D47A /* NoImage.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,9 +282,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				A053E64517E37F7300EE7AEB /* main.m in Sources */,
+				A0D4F00017F60F6B00813377 /* EventViewController.m in Sources */,
 				A053E64917E37F7300EE7AEB /* AppDelegate.m in Sources */,
 				A053E66217E3A74F00EE7AEB /* MainViewController.m in Sources */,
 				A053E66817E3ABFE00EE7AEB /* GeoLocation.m in Sources */,
+				A0D36EC017F888A700D4AAD6 /* TicketsViewController.m in Sources */,
+				A0E0F06B17E4B442002E8528 /* PopularViewCell.m in Sources */,
+				A0C8FB151810DDE2005F07B9 /* MapViewController.m in Sources */,
+				A0D157CE17E6174300E9D47A /* AboutViewController.m in Sources */,
+				A0D4EFFD17F60F2100813377 /* SearchViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,6 +343,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -286,6 +368,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				OTHER_LDFLAGS = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -294,10 +377,20 @@
 		A053E65917E37F7400EE7AEB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Luis Perez (UB52HX55KA)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Luis Perez (UB52HX55KA)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "First Row/First Row-Prefix.pch";
 				INFOPLIST_FILE = "First Row/First Row-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -305,10 +398,20 @@
 		A053E65A17E37F7400EE7AEB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "First Row/First Row-Prefix.pch";
 				INFOPLIST_FILE = "First Row/First Row-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -332,6 +435,7 @@
 				A053E65A17E37F7400EE7AEB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
