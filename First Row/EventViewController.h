@@ -12,6 +12,7 @@
 #import "PopularViewCell.h"
 #import "TicketsViewController.h"
 #import "MapViewController.h"
+#import "YouTubeViewController.h"
 
 @interface EventViewController : UIViewController <ADBannerViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
 {

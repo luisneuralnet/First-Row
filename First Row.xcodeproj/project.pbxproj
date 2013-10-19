@@ -36,6 +36,7 @@
 		A0E0F07317E4BC1C002E8528 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0E0F07217E4BC1C002E8528 /* ImageIO.framework */; };
 		A0E0F07517E51EB7002E8528 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0E0F07417E51EB7002E8528 /* iAd.framework */; };
 		A0EE005C17F751E4008A9AE9 /* PlayBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = A0EE005B17F751E4008A9AE9 /* PlayBtn.png */; };
+		A0EF571D1811FFAA008CE24D /* YouTubeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EF571C1811FFAA008CE24D /* YouTubeViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +81,8 @@
 		A0E0F07217E4BC1C002E8528 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		A0E0F07417E51EB7002E8528 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		A0EE005B17F751E4008A9AE9 /* PlayBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PlayBtn.png; sourceTree = "<group>"; };
+		A0EF571B1811FFAA008CE24D /* YouTubeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouTubeViewController.h; sourceTree = "<group>"; };
+		A0EF571C1811FFAA008CE24D /* YouTubeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YouTubeViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +157,8 @@
 				A0D36EBF17F888A700D4AAD6 /* TicketsViewController.m */,
 				A0C8FB131810DDE2005F07B9 /* MapViewController.h */,
 				A0C8FB141810DDE2005F07B9 /* MapViewController.m */,
+				A0EF571B1811FFAA008CE24D /* YouTubeViewController.h */,
+				A0EF571C1811FFAA008CE24D /* YouTubeViewController.m */,
 				A053E63F17E37F7300EE7AEB /* Supporting Files */,
 			);
 			path = "First Row";
@@ -282,6 +287,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A053E64517E37F7300EE7AEB /* main.m in Sources */,
+				A0EF571D1811FFAA008CE24D /* YouTubeViewController.m in Sources */,
 				A0D4F00017F60F6B00813377 /* EventViewController.m in Sources */,
 				A053E64917E37F7300EE7AEB /* AppDelegate.m in Sources */,
 				A053E66217E3A74F00EE7AEB /* MainViewController.m in Sources */,

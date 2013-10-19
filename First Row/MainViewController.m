@@ -16,6 +16,7 @@
 
 @synthesize PopularEventsCollectionView;
 @synthesize BusyIndicator;
+@synthesize EventSearchBar;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -104,7 +105,7 @@
     
     if (pointData.latitude > 0)
     {
-        NSLog(@"call: %@", call);
+        //NSLog(@"call: %@", call);
         NSURLRequest *req = [NSURLRequest requestWithURL:[NSURL URLWithString:call]];
     
         [NSURLConnection sendAsynchronousRequest:req queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error)
@@ -198,6 +199,12 @@
     return date;
 }
 
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    [searchBar resignFirstResponder];
+    [self performSegueWithIdentifier:@"SearchSegue" sender:Nil];
+}
+
 // iAd network
 
 -(void) bannerViewDidLoadAd:(ADBannerView *)banner
@@ -220,6 +227,12 @@
         
         [eventViewController setEventID:[[popularEventsArray objectAtIndex:SelectedIndex] objectForKey:@"id"]];
         [eventViewController setPerformer:performer];
+    }
+    
+    if ([segue.identifier isEqualToString:@"SearchSegue"])
+    {
+        SearchViewController *searchViewController = [segue destinationViewController];
+        [searchViewController setQuery:EventSearchBar.text];
     }
 }
 

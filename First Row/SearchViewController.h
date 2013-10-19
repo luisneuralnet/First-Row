@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <iAd/iAd.h>
+#import <SDWebImage/UIImageView+WebCache.h>
+#import "GeoLocation.h"
 
-@interface SearchViewController : UIViewController
+@interface SearchViewController : UIViewController <ADBannerViewDelegate, UITableViewDataSource, UITableViewDelegate>
+{
+    NSDictionary *localEvents;
+    NSDictionary *nationWideEvents;
+}
+@property (strong, nonatomic) NSString *query;
+@property (weak, nonatomic) IBOutlet UITableView *SearchTableView;
 
 @end

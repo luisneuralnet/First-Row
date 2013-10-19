@@ -172,7 +172,7 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"selected index: %d", indexPath.row);
+    
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -192,6 +192,17 @@
         venueCoordinate.latitude = lat;
         venueCoordinate.longitude = lon;
         [mapViewController setVenueLocation:venueCoordinate];
+    }
+    
+    if ([segue.identifier isEqualToString:@"VideoSegue"])
+    {
+        NSArray *indexPaths = [VideoCollectionView indexPathsForSelectedItems];
+        NSIndexPath *index = [indexPaths objectAtIndex:0];
+        
+        NSString *video = [[bingVideosJsonResult objectAtIndex:index.row] objectForKey:@"MediaUrl"];
+        
+        YouTubeViewController *youTubeViewController = [segue destinationViewController];
+        [youTubeViewController setVideoURL:video];
     }
 }
 
