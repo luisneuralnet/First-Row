@@ -10,6 +10,8 @@
 #import <iAd/iAd.h>
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "GeoLocation.h"
+#import "SearchEventCell.h"
+#import "EventViewController.h"
 
 @interface SearchViewController : UIViewController <ADBannerViewDelegate, UITableViewDataSource, UITableViewDelegate>
 {

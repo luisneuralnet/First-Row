@@ -27,6 +27,9 @@
 @synthesize EventLabel;
 @synthesize VenueLabel;
 @synthesize AddressLabel;
+@synthesize BuyTicketsImg;
+@synthesize FacebookBTN;
+@synthesize TwitterBTN;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -44,6 +47,8 @@
     [self getEventImages];
     [self getEventVideos];
     [self getEventInfo];
+    
+    NSLog(@"performer: %@", performer);
 }
 
 - (void)didReceiveMemoryWarning
@@ -79,12 +84,27 @@
              
              NSString *dateData = [NSString stringWithFormat:@"%@ %@", [df stringFromDate:myDate], [tf stringFromDate:myDate]];
              [EventDate setText:dateData];
-
-             NSString *HighestText = [NSString stringWithFormat:@"highest $%@", [[eventData objectForKey:@"stats"] objectForKey:@"highest_price"]];
+             [df setDateStyle:NSDateFormatterShortStyle];
+             eventDate = [df stringFromDate:myDate];
              
-             NSString *AverageText = [NSString stringWithFormat:@"average $%@", [[eventData objectForKey:@"stats"] objectForKey:@"average_price"]];
+             NSString *highestPrice = [[eventData objectForKey:@"stats"] objectForKey:@"highest_price"];
+             NSString *averagePrice = [[eventData objectForKey:@"stats"] objectForKey:@"average_price"];
+             NSString *lowestPrice = [[eventData objectForKey:@"stats"] objectForKey:@"lowest_price"];
              
-             NSString *LowestText  = [NSString stringWithFormat:@"lowest  $%@", [[eventData objectForKey:@"stats"] objectForKey:@"lowest_price"]];
+             NSLog(@"highest price: %@", highestPrice);
+             
+             NSString *HighestText = @"highest n/a";
+             NSString *AverageText = @"average n/a";
+             NSString *LowestText  = @"lowest n/a";
+             
+             if (![highestPrice isEqual:[NSNull null]])
+             HighestText = [NSString stringWithFormat:@"highest $%@", [[eventData objectForKey:@"stats"] objectForKey:@"highest_price"]];
+             
+             if (![averagePrice isEqual:[NSNull null]])
+             AverageText = [NSString stringWithFormat:@"average $%@", [[eventData objectForKey:@"stats"] objectForKey:@"average_price"]];
+             
+             if (![lowestPrice isEqual:[NSNull null]])
+             LowestText  = [NSString stringWithFormat:@"lowest $%@", [[eventData objectForKey:@"stats"] objectForKey:@"lowest_price"]];
              
              [HighestLabel setText:HighestText];
              [AverageLabel setText:AverageText];
@@ -122,8 +142,17 @@
          if (error == NULL)
          {
              bingImageJsonResult = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
-             NSString *mediaURL = [[bingImageJsonResult objectAtIndex:0] objectForKey:@"MediaUrl"];
-             [BackgroundImageView setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:mediaURL]]]];
+             @try
+             {
+                 NSInteger randomIndex = arc4random() % [bingImageJsonResult count] - 1;
+                 NSString *mediaURL = [[bingImageJsonResult objectAtIndex:randomIndex] objectForKey:@"MediaUrl"];
+                 [BackgroundImageView setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:mediaURL]]]];
+             }
+             @catch (NSException *exception)
+             {
+                 // TODO
+                 // set first row no image
+             }
          }
          
      }];
@@ -145,12 +174,27 @@
          if (error == NULL)
          {
              bingVideosJsonResult = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
-             NSLog(@"videos: %@", bingVideosJsonResult);
+             //NSLog(@"videos: %@", bingVideosJsonResult);
              [VideoCollectionView reloadData];
              [BusyIndicator stopAnimating];
+             [self unhideEventInfo];
          }
          
      }];
+}
+
+- (void)unhideEventInfo
+{
+    [EventLabel setHidden:NO];
+    [VenueLabel setHidden:NO];
+    [EventDate setHidden:NO];
+    [AverageLabel setHidden:NO];
+    [LowestLabel setHidden:NO];
+    [HighestLabel setHidden:NO];
+    [AddressLabel setHidden:NO];
+    [FacebookBTN setHidden:NO];
+    [TwitterBTN setHidden:NO];
+    [BuyTicketsImg setHidden:NO];
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
@@ -218,4 +262,85 @@
     [banner setHidden:YES];
 }
 
+- (IBAction)ShareFacebookClick:(id)sender
+{
+    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook])
+    {
+        SLComposeViewController *facebook = [SLComposeViewController new];
+        
+        facebook = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+        
+        [self presentViewController:facebook animated:YES completion:nil];
+        
+        [facebook setInitialText:[NSString stringWithFormat:@"going to see %@ on %@ %@ via #FirstRow", performer, eventDate,ticketURL]];
+        
+        [facebook setCompletionHandler:^(SLComposeViewControllerResult result)
+         {
+             switch (result)
+             {
+                 case SLComposeViewControllerResultCancelled:
+                 {
+                     NSLog(@"facebook error");
+                 }
+                     break;
+                     
+                 case SLComposeViewControllerResultDone:
+                 {
+                     NSLog(@"facebook done");
+                 }
+                     break;
+                     
+                 default:
+                     break;
+             }
+             [self dismissViewControllerAnimated:YES completion:nil];
+         }];
+    }
+    else
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"First Row" message:@"Unable to use facebook, please check your facebook settings and try again" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil];
+        [alert show];
+    }
+}
+
+- (IBAction)ShareTwitterClick:(id)sender
+{
+    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter])
+    {
+        SLComposeViewController *twitter = [SLComposeViewController new];
+        
+        twitter = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+        
+        [self presentViewController:twitter animated:YES completion:nil];
+        
+        [twitter setInitialText:[NSString stringWithFormat:@"going to see %@ on %@ %@ via #FirstRow", performer, eventDate,ticketURL]];
+        
+        [twitter setCompletionHandler:^(SLComposeViewControllerResult result)
+         {
+             switch (result)
+             {
+                 case SLComposeViewControllerResultCancelled:
+                 {
+                     NSLog(@"twitter error");
+                 }
+                     break;
+                     
+                 case SLComposeViewControllerResultDone:
+                 {
+                     NSLog(@"twitter done");
+                 }
+                     break;
+                     
+                 default:
+                     break;
+             }
+             [self dismissViewControllerAnimated:YES completion:nil];
+         }];
+    }
+    else
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"First Row" message:@"Unable to use twitter, please check your twitter settings and try again" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil];
+        [alert show];
+    }
+}
 @end

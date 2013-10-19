@@ -17,6 +17,7 @@
 @synthesize PopularEventsCollectionView;
 @synthesize BusyIndicator;
 @synthesize EventSearchBar;
+@synthesize TodayLabel;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -32,6 +33,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     [self setFirstRowLogo];
+    [self getTodayDate];
     GotFirstLocation = NO;
     [self getUserLocation];
 }
@@ -105,7 +107,6 @@
     
     if (pointData.latitude > 0)
     {
-        //NSLog(@"call: %@", call);
         NSURLRequest *req = [NSURLRequest requestWithURL:[NSURL URLWithString:call]];
     
         [NSURLConnection sendAsynchronousRequest:req queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error)
@@ -122,7 +123,6 @@
                 NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
                 
                 popularEventsArray = [popularEventsArray sortedArrayUsingDescriptors:sortDescriptors];
-                //NSLog(@"json response: %@", popularEventsArray);
                 [PopularEventsCollectionView reloadData];
                 [BusyIndicator stopAnimating];
             }
@@ -184,13 +184,12 @@
 
 -(NSString *)DateString:(NSString *)stringValue
 {
-    stringValue = [stringValue stringByReplacingOccurrencesOfString:@"T" withString:@" "];
     NSDateFormatter *dateFormatter = [NSDateFormatter new];
     
     NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     [dateFormatter setCalendar:gregorianCalendar];
     
-    [dateFormatter setDateFormat:@"yyyy-MM-dd hh:mm:ss"];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'hh:mm:ss"];
     NSDate *eventDate = [dateFormatter dateFromString:stringValue];
     
     [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
@@ -234,6 +233,17 @@
         SearchViewController *searchViewController = [segue destinationViewController];
         [searchViewController setQuery:EventSearchBar.text];
     }
+}
+
+- (void) getTodayDate
+{
+    NSDate *now = [NSDate date];
+    
+    NSDateFormatter *format = [[NSDateFormatter alloc] init];
+    [format setDateStyle:NSDateFormatterFullStyle];
+    
+    NSString *strDate = [format stringFromDate:now];
+    [TodayLabel setText:strDate];
 }
 
 @end

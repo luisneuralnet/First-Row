@@ -30,6 +30,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
     [self getLocalEvents];
 }
 
@@ -66,7 +67,7 @@
 {
     NSString *webQuery = [query stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
     
-    NSString *call = [NSString stringWithFormat:@"http://api.seatgeek.com/2/events?per_page=100&page=1&q=%@", webQuery];
+    NSString *call = [NSString stringWithFormat:@"http://api.seatgeek.com/2/events?per_page=200&page=1&q=%@", webQuery];
     
     NSURLRequest *req = [NSURLRequest requestWithURL:[NSURL URLWithString:call]];
     
@@ -108,19 +109,61 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"eventCell"forIndexPath:indexPath];
+    SearchEventCell *cell = [tableView dequeueReusableCellWithIdentifier:@"eventCell"forIndexPath:indexPath];
     
     switch ([indexPath section])
     {
         case 0:
         {
-            [cell.textLabel setText:[[[localEvents objectForKey:@"events"] objectAtIndex:indexPath.row]  objectForKey:@"short_title"]];
+            [cell.EventLabel setText:[[[localEvents objectForKey:@"events"] objectAtIndex:indexPath.row]  objectForKey:@"short_title"]];
+            
+            NSString *photo = [NSString new];
+            @try
+            {
+                photo = [[[[[localEvents objectForKey:@"events"] objectAtIndex:indexPath.row] objectForKey:@"performers"] objectAtIndex:0] objectForKey:@"image"];
+            }
+            @catch (NSException *exception)
+            {
+                // do nothing for now
+            }
+
+            if (photo != (NSString *)[NSNull null])
+                [cell.EventPic setImageWithURL:[NSURL URLWithString:photo]];
+            else
+                [cell.EventPic setImage:[UIImage imageNamed:@"NoImage.jpg"]];
+            
+            NSString *date = [[[localEvents objectForKey:@"events"] objectAtIndex:indexPath.row] objectForKey:@"datetime_local"];
+            
+            date = [self DateString:date];
+            
+            [cell.DateLabel setText:date];
         }
         break;
             
         case 1:
         {
-            [cell.textLabel setText:[[[nationWideEvents objectForKey:@"events"] objectAtIndex:indexPath.row] objectForKey:@"short_title"]];
+            [cell.EventLabel setText:[[[nationWideEvents objectForKey:@"events"] objectAtIndex:indexPath.row] objectForKey:@"short_title"]];
+            
+            NSString *photo = [NSString new];
+            @try
+            {
+                photo = [[[[[nationWideEvents objectForKey:@"events"] objectAtIndex:indexPath.row] objectForKey:@"performers"] objectAtIndex:0] objectForKey:@"image"];
+            }
+            @catch (NSException *exception)
+            {
+                // do nothing for now
+            }
+            
+            if (photo != (NSString *)[NSNull null])
+                [cell.EventPic setImageWithURL:[NSURL URLWithString:photo]];
+            else
+                [cell.EventPic setImage:[UIImage imageNamed:@"NoImage.jpg"]];
+            
+            NSString *date = [[[nationWideEvents                                                                       objectForKey:@"events"] objectAtIndex:indexPath.row] objectForKey:@"datetime_local"];
+            
+            date = [self DateString:date];
+            
+            [cell.DateLabel setText:date];
         }
         break;
     }
@@ -172,4 +215,48 @@
     [banner setHidden:YES];
 }
 
+-(NSString *)DateString:(NSString *)stringValue
+{
+    NSDateFormatter *dateFormatter = [NSDateFormatter new];
+    
+    NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    [dateFormatter setCalendar:gregorianCalendar];
+    
+    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'hh:mm:ss"];
+    NSDate *eventDate = [dateFormatter dateFromString:stringValue];
+    
+    [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+    NSString *date = [dateFormatter stringFromDate:eventDate];
+    
+    return date;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"EventSegue"])
+    {
+        EventViewController *eventViewController = [segue destinationViewController];
+        int Section = SearchTableView.indexPathForSelectedRow.section;
+        int Row = SearchTableView.indexPathForSelectedRow.row;
+        
+        NSLog(@"selcted index: %d, selected section: %d", Row, Section);
+        
+        NSString *performer = [NSString new];
+
+        switch (Section)
+        {
+            case 0:
+                performer = [[[[[localEvents objectForKey:@"events"] objectAtIndex:Row] objectForKey:@"performers"] objectAtIndex:0] objectForKey:@"name"];
+                [eventViewController setEventID:[[[localEvents objectForKey:@"events"] objectAtIndex:Row] objectForKey:@"id"]];
+                break;
+                
+            case 1:
+                performer = [[[[[nationWideEvents objectForKey:@"events"] objectAtIndex:Row] objectForKey:@"performers"] objectAtIndex:0] objectForKey:@"name"];
+                [eventViewController setEventID:[[[nationWideEvents objectForKey:@"events"] objectAtIndex:Row] objectForKey:@"id"]];
+                break;
+        }
+
+        [eventViewController setPerformer:performer];
+    }
+}
 @end

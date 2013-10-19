@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <iAd/iAd.h>
 #import <SDWebImage/UIImageView+WebCache.h>
+#import <Social/Social.h>
 #import "PopularViewCell.h"
 #import "TicketsViewController.h"
 #import "MapViewController.h"
@@ -21,6 +22,7 @@
     NSString *ticketURL;
     NSString *venueName;
     NSString *address;
+    NSString *eventDate;
     double lat;
     double lon;
 }
@@ -38,5 +40,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *EventLabel;
 @property (weak, nonatomic) IBOutlet UILabel *VenueLabel;
 @property (weak, nonatomic) IBOutlet UILabel *AddressLabel;
+@property (weak, nonatomic) IBOutlet UIButton *FacebookBTN;
+@property (weak, nonatomic) IBOutlet UIButton *TwitterBTN;
+@property (weak, nonatomic) IBOutlet UIImageView *BuyTicketsImg;
+
+- (IBAction)ShareFacebookClick:(id)sender;
+- (IBAction)ShareTwitterClick:(id)sender;
 
 @end

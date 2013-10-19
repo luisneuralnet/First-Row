@@ -27,5 +27,6 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *PopularEventsCollectionView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *BusyIndicator;
 @property (weak, nonatomic) IBOutlet UISearchBar *EventSearchBar;
+@property (weak, nonatomic) IBOutlet UILabel *TodayLabel;
 
 @end
