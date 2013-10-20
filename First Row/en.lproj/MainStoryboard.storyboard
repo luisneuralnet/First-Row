@@ -646,7 +646,7 @@
                                 </connections>
                             </adBannerView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b9M-tP-bzw">
-                                <rect key="frame" x="24" y="186" width="270" height="80"/>
+                                <rect key="frame" x="24" y="358" width="270" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -659,7 +659,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aRz-Vj-S2c">
-                                <rect key="frame" x="24" y="282" width="270" height="80"/>
+                                <rect key="frame" x="24" y="175" width="270" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="     Get Football Pro" image="FootballPro14Icon.png">
@@ -675,7 +675,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q4l-T2-Wai">
-                                <rect key="frame" x="24" y="375" width="270" height="80"/>
+                                <rect key="frame" x="24" y="266" width="270" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="     Get GameScout" image="GameScoutIcon.png">
@@ -735,8 +735,6 @@
         <image name="FootballPro14Icon.png" width="80" height="80"/>
         <image name="GameScoutIcon.png" width="80" height="80"/>
         <image name="Info.png" width="35" height="35"/>
-        <image name="MainBG.jpg" width="320" height="480"/>
-        <image name="MainBG.jpg" width="320" height="480"/>
         <image name="MainBG.jpg" width="320" height="480"/>
         <image name="PlayBtn.png" width="45" height="47"/>
         <image name="ShareFacebook.png" width="140" height="29"/>
