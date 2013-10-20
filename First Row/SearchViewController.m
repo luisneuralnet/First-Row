@@ -77,6 +77,7 @@
          {
              nationWideEvents = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
              [SearchTableView reloadData];
+             NSLog(@"nationwide events: %@", nationWideEvents);
          }
          
      }];
@@ -121,22 +122,27 @@
             @try
             {
                 photo = [[[[[localEvents objectForKey:@"events"] objectAtIndex:indexPath.row] objectForKey:@"performers"] objectAtIndex:0] objectForKey:@"image"];
+            
+
+                if (photo != (NSString *)[NSNull null])
+                    [cell.EventPic setImageWithURL:[NSURL URLWithString:photo]];
+                else
+                    [cell.EventPic setImage:[UIImage imageNamed:@"NoImage.jpg"]];
+            
+                NSString *location = [[[[localEvents objectForKey:@"events"] objectAtIndex:indexPath.row] objectForKey:@"venue"] objectForKey:@"display_location"];
+            
+                NSString *date = [[[localEvents objectForKey:@"events"] objectAtIndex:indexPath.row] objectForKey:@"datetime_local"];
+            
+                date = [self DateString:date];
+            
+                [cell.LocationLabel setText:location];
+                [cell.DateLabel setText:date];
+                
             }
             @catch (NSException *exception)
             {
                 // do nothing for now
             }
-
-            if (photo != (NSString *)[NSNull null])
-                [cell.EventPic setImageWithURL:[NSURL URLWithString:photo]];
-            else
-                [cell.EventPic setImage:[UIImage imageNamed:@"NoImage.jpg"]];
-            
-            NSString *date = [[[localEvents objectForKey:@"events"] objectAtIndex:indexPath.row] objectForKey:@"datetime_local"];
-            
-            date = [self DateString:date];
-            
-            [cell.DateLabel setText:date];
         }
         break;
             
@@ -145,25 +151,30 @@
             [cell.EventLabel setText:[[[nationWideEvents objectForKey:@"events"] objectAtIndex:indexPath.row] objectForKey:@"short_title"]];
             
             NSString *photo = [NSString new];
+            
             @try
             {
                 photo = [[[[[nationWideEvents objectForKey:@"events"] objectAtIndex:indexPath.row] objectForKey:@"performers"] objectAtIndex:0] objectForKey:@"image"];
+            
+            
+                if (photo != (NSString *)[NSNull null])
+                    [cell.EventPic setImageWithURL:[NSURL URLWithString:photo]];
+                else
+                    [cell.EventPic setImage:[UIImage imageNamed:@"NoImage.jpg"]];
+            
+                NSString *date = [[[nationWideEvents                                                                       objectForKey:@"events"] objectAtIndex:indexPath.row] objectForKey:@"datetime_local"];
+                NSString *location = [[[[nationWideEvents objectForKey:@"events"] objectAtIndex:indexPath.row] objectForKey:@"venue"] objectForKey:@"display_location"];
+            
+                date = [self DateString:date];
+            
+                [cell.DateLabel setText:date];
+                [cell.LocationLabel setText:location];
+            
             }
             @catch (NSException *exception)
             {
                 // do nothing for now
             }
-            
-            if (photo != (NSString *)[NSNull null])
-                [cell.EventPic setImageWithURL:[NSURL URLWithString:photo]];
-            else
-                [cell.EventPic setImage:[UIImage imageNamed:@"NoImage.jpg"]];
-            
-            NSString *date = [[[nationWideEvents                                                                       objectForKey:@"events"] objectAtIndex:indexPath.row] objectForKey:@"datetime_local"];
-            
-            date = [self DateString:date];
-            
-            [cell.DateLabel setText:date];
         }
         break;
     }
@@ -255,7 +266,8 @@
                 [eventViewController setEventID:[[[nationWideEvents objectForKey:@"events"] objectAtIndex:Row] objectForKey:@"id"]];
                 break;
         }
-
+        
+        [SearchTableView reloadData];
         [eventViewController setPerformer:performer];
     }
 }

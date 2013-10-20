@@ -13,10 +13,14 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    // appi rater
     [Appirater setAppId:@"570601474"];
     [Appirater setDaysUntilPrompt:0];
     [Appirater setUsesUntilPrompt:3];
+    [Appirater setSignificantEventsUntilPrompt:-1];
+    [Appirater setTimeBeforeReminding:0];
     [Appirater appLaunched:YES];
+    
     return YES;
 }
 							

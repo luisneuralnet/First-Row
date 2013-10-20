@@ -204,6 +204,12 @@
     [self performSegueWithIdentifier:@"SearchSegue" sender:Nil];
 }
 
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{
+    [searchBar setText:@""];
+    [searchBar resignFirstResponder];
+}
+
 // iAd network
 
 -(void) bannerViewDidLoadAd:(ADBannerView *)banner
@@ -232,6 +238,7 @@
     {
         SearchViewController *searchViewController = [segue destinationViewController];
         [searchViewController setQuery:EventSearchBar.text];
+        [EventSearchBar setText:@""];
     }
 }
 

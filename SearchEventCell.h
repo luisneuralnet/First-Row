@@ -13,4 +13,5 @@
 @property (weak, nonatomic) IBOutlet UIImageView *EventPic;
 @property (weak, nonatomic) IBOutlet UILabel *EventLabel;
 @property (weak, nonatomic) IBOutlet UILabel *DateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *LocationLabel;
 @end
