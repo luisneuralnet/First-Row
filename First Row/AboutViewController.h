@@ -15,5 +15,6 @@
 
 - (IBAction)ContactUsClick:(id)sender;
 - (IBAction)FootballProClick:(id)sender;
+- (IBAction)GameScoutClick:(id)sender;
 
 @end

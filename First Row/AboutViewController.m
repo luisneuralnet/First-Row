@@ -75,6 +75,13 @@
                                                 @"https://itunes.apple.com/us/app/id687321854?mt=8#"]];
 }
 
+- (IBAction)GameScoutClick:(id)sender
+{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:
+                                                @"https://itunes.apple.com/us/app/game-scout/id688258282?mt=8"]];
+    
+}
+
 - (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
 {
     switch (result)

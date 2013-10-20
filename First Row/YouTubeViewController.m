@@ -48,4 +48,10 @@
     VideoWebView.mediaPlaybackRequiresUserAction = NO;
     [VideoWebView loadHTMLString: youTubeVideoHTML baseURL:[[NSBundle mainBundle] resourceURL]];
 }
+
+- (NSUInteger)supportedInterfaceOrientations
+{
+    NSLog(@"suported interface orientation");
+    return UIInterfaceOrientationMaskPortrait | UIInterfaceOrientationMaskLandscapeLeft;
+}
 @end

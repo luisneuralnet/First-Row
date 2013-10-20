@@ -179,7 +179,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Q2s-1B-pjk">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="Ar2-6V-H0a">
+                        <barButtonItem key="rightBarButtonItem" image="Info.png" id="Ar2-6V-H0a">
                             <connections>
                                 <segue destination="HnQ-r3-ERx" kind="push" id="6YT-Ql-oYd"/>
                             </connections>
@@ -645,8 +645,8 @@
                                     <outlet property="delegate" destination="HnQ-r3-ERx" id="SuZ-yT-IME"/>
                                 </connections>
                             </adBannerView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b9M-tP-bzw">
-                                <rect key="frame" x="24" y="73" width="187" height="57"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b9M-tP-bzw">
+                                <rect key="frame" x="24" y="186" width="270" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -658,16 +658,31 @@
                                     <action selector="ContactUsClick:" destination="HnQ-r3-ERx" eventType="touchUpInside" id="b5i-BO-i34"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aRz-Vj-S2c">
-                                <rect key="frame" x="22" y="151" width="189" height="57"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aRz-Vj-S2c">
+                                <rect key="frame" x="24" y="282" width="270" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Get Football Pro" image="FootballProIcon.png">
+                                <state key="normal" title="     Get Football Pro" image="FootballPro14Icon.png">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="FootballProClick:" destination="HnQ-r3-ERx" eventType="touchUpInside" id="JPg-p8-eeZ"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="FirstRowInfo.png" translatesAutoresizingMaskIntoConstraints="NO" id="2eZ-x4-4Us">
+                                <rect key="frame" x="24" y="74" width="270" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q4l-T2-Wai">
+                                <rect key="frame" x="24" y="375" width="270" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="     Get GameScout" image="GameScoutIcon.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="GameScoutClick:" destination="HnQ-r3-ERx" eventType="touchUpInside" id="w4k-Xh-dBJ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -716,7 +731,12 @@
     </scenes>
     <resources>
         <image name="BuyTickets.png" width="80" height="80"/>
-        <image name="FootballProIcon.png" width="57" height="57"/>
+        <image name="FirstRowInfo.png" width="300" height="100"/>
+        <image name="FootballPro14Icon.png" width="80" height="80"/>
+        <image name="GameScoutIcon.png" width="80" height="80"/>
+        <image name="Info.png" width="35" height="35"/>
+        <image name="MainBG.jpg" width="320" height="480"/>
+        <image name="MainBG.jpg" width="320" height="480"/>
         <image name="MainBG.jpg" width="320" height="480"/>
         <image name="PlayBtn.png" width="45" height="47"/>
         <image name="ShareFacebook.png" width="140" height="29"/>
