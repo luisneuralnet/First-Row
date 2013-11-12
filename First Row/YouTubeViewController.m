@@ -51,7 +51,6 @@
 
 - (NSUInteger)supportedInterfaceOrientations
 {
-    NSLog(@"suported interface orientation");
     return UIInterfaceOrientationMaskPortrait | UIInterfaceOrientationMaskLandscapeLeft;
 }
 @end
