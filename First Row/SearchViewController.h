@@ -20,5 +20,6 @@
 }
 @property (strong, nonatomic) NSString *query;
 @property (weak, nonatomic) IBOutlet UITableView *SearchTableView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *BusyIndicator;
 
 @end

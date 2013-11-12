@@ -228,9 +228,12 @@
     {
         EventViewController *eventViewController = [segue destinationViewController];
         
-        NSString *performer = [[[[popularEventsArray objectAtIndex:SelectedIndex] objectForKey:@"performers"] objectAtIndex:0] objectForKey:@"name"];
+        NSArray *indexPaths = [PopularEventsCollectionView indexPathsForSelectedItems];
+        NSIndexPath *index = [indexPaths objectAtIndex:0];
         
-        [eventViewController setEventID:[[popularEventsArray objectAtIndex:SelectedIndex] objectForKey:@"id"]];
+        NSString *performer = [[[[popularEventsArray objectAtIndex:index.row] objectForKey:@"performers"] objectAtIndex:0] objectForKey:@"name"];
+        
+        [eventViewController setEventID:[[popularEventsArray objectAtIndex:index.row] objectForKey:@"id"]];
         [eventViewController setPerformer:performer];
     }
     
@@ -252,5 +255,6 @@
     NSString *strDate = [format stringFromDate:now];
     [TodayLabel setText:strDate];
 }
+
 
 @end

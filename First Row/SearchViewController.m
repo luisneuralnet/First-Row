@@ -16,6 +16,7 @@
 
 @synthesize query;
 @synthesize SearchTableView;
+@synthesize BusyIndicator;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -42,6 +43,8 @@
 
 - (void)getLocalEvents
 {
+    [SearchTableView setHidden:YES];
+    [BusyIndicator startAnimating];
     CLLocation *location = [GeoLocation Location];
     
     NSString *webQuery = [query stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
@@ -58,6 +61,7 @@
              NSLog(@"local events: %@", localEvents);
              
              [self getNationWideEvents];
+             
          }
          
      }];
@@ -77,7 +81,9 @@
          {
              nationWideEvents = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
              [SearchTableView reloadData];
+             [SearchTableView setHidden:NO];
              NSLog(@"nationwide events: %@", nationWideEvents);
+             [BusyIndicator stopAnimating];
          }
          
      }];
@@ -214,6 +220,22 @@
     return header;
 }
 
+- (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+	UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 20)];
+    tableView.sectionHeaderHeight = headerView.frame.size.height;
+	UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 10, headerView.frame.size.width - 5, 30)];
+	label.text = [self tableView:tableView titleForHeaderInSection:section];
+	label.font = [UIFont boldSystemFontOfSize:16.0];
+	label.shadowOffset = CGSizeMake(0, 1);
+	//label.shadowColor = [UIColor whiteColor];
+	label.backgroundColor = [UIColor clearColor];
+    
+	label.textColor = [UIColor whiteColor];
+	[headerView addSubview:label];
+	return headerView;
+}
+
 // iAd network
 
 -(void) bannerViewDidLoadAd:(ADBannerView *)banner
@@ -271,4 +293,5 @@
         [eventViewController setPerformer:performer];
     }
 }
+
 @end
